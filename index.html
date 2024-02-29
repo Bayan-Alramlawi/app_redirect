@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Redirect Test</title>
+  <script>
+        function redirectToApp() {
+            var customProtocol = "testCustomProtocol://nas.io";
+            var fallbackUrl = "https://nas.io/install";
+
+            // Try to open the custom protocol
+            window.location.href = customProtocol;
+
+            // Timeout to check if app opened
+            setTimeout(function() {
+                // If still here, app is not installed
+                window.location.href = fallbackUrl;
+            }, 1000); // Adjust timeout as needed
+        }
+    </script>
+</head>
+<body>
+<button onclick="redirectToApp()">Open App</button>
+</body>
+</html>
