@@ -4,12 +4,18 @@
   <title>Redirect Test</title>
   <script>
         function redirectToApp() {
-            var customProtocol = "testCustomProtocol://nas.io/portal/challenges/65eeb66b10f73a4fae7e97a5?activeCommunityId=65eeb1b8fac8c6113a869694";
+            // Get the value from the text input
+            var textValue = document.getElementById('textInput').value;
+
+            // If no value is provided, use a default value or leave as it is
+            var customProtocol = "testCustomProtocol://" + textValue;
+
             var fallbackUrl = "https://nas.io/install";
 
-          
+            // Redirect to the custom protocol URL
             window.location.href = customProtocol;
 
+            // Set a timeout for the fallback URL
             setTimeout(function() {
                 window.location.href = fallbackUrl;
             }, 1000);
@@ -17,6 +23,10 @@
     </script>
 </head>
 <body>
+<!-- Add a text field for input -->
+<input type="text" id="textInput" placeholder="redirect to app link here" />
+<br>
+<!-- Updated button to use the entered text value -->
 <button onclick="redirectToApp()">Open App</button>
 </body>
 </html>
