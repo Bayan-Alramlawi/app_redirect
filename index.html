@@ -2,31 +2,36 @@
 <html>
 <head>
   <title>Redirect Test</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; 
+      margin: 0;
+    }
+    button {
+      margin: 10px; 
+      padding: 15px 30px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+  </style>
   <script>
-        function redirectToApp() {
-            // Get the value from the text input
-            var textValue = document.getElementById('textInput').value;
-
-            // If no value is provided, use a default value or leave as it is
-            // var customProtocol = "nasioqx78cp://" + textValue;
-
+        function dev() {
             var devExample = "https://nasacademy.page.link/?link=https%3A%2F%2Fdev-nas.io%2Fmb%2Fcommunities%2F64dd9576c978d6f4d227b68d%2Fchallenges%2F65f58921fa2f5f57bec81d60&apn=com.dev.nas.academy&ibi=com.dev.nasAcademy&isi=id1624529593&efr=1";
-            var prodExample = "https://nasacademy.page.link/?link=https%3A%2F%2Fnas.io%2Fmb%2Fcommunities%2F647ee917fe55557cbc777058%2Ffeed%2F65ca3d48dae4063a205a63a0%3FscrollIndex%3D0&apn=com.nas.academy&ibi=com.nasAcademy&isi=id1624529593&efr=1"
-            // Redirect to the custom protocol URL
-            window.location.href = prodExample;
-
-            // // Set a timeout for the fallback URL
-            // setTimeout(function() {
-            //     window.location.href = fallbackUrl;
-            // }, 1000);
+            window.location.href = devExample; // Fixed variable reference to `devExample` instead of `prodExample`
         }
-    </script>
+        function prod() {
+            var prodExample = "https://nasacademy.page.link/?link=https%3A%2F%2Fnas.io%2Fmb%2Fcommunities%2F647ee917fe55557cbc777058%2Ffeed%2F65ca3d48dae4063a205a63a0%3FscrollIndex%3D0&apn=com.nas.academy&ibi=com.nasAcademy&isi=id1624529593&efr=1"
+            window.location.href = prodExample;
+        }
+  </script>
 </head>
 <body>
-<!-- Add a text field for input -->
-<input type="text" id="textInput" placeholder="redirect to app link here" />
-<br>
-<!-- Updated button to use the entered text value -->
-<button onclick="redirectToApp()">Open App</button>
+  <div>
+    <button onclick="dev()">Open DEV App</button>
+    <button onclick="prod()">Open PROD App</button>
+  </div>
 </body>
 </html>
